@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.dealer.web.screens.vehicle">
+    <data>
+        <instance id="vehicleDc"
+                  class="com.company.dealer.entity.Vehicle"
+                  view="vehicle-view">
+            <loader/>
+        </instance>
+        <collection id="manufacturersDc" class="com.company.dealer.entity.Manufacturer" view="_minimal">
+            <loader id="manufacturersLc">
+                <query>
+                    <![CDATA[select e from dealer_Manufacturer e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="vehicleModelsDc" class="com.company.dealer.entity.VehicleModel">
+            <view extends="_local"/>
+            <loader id="vehicleModelsDl">
+                <query>
+                    <![CDATA[select e from dealer_VehicleModel e where e.manufacturer = :manufacturer]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="vehicleEquipmentsDc" class="com.company.dealer.entity.VehicleEquipment">
+            <view extends="_local"/>
+            <loader id="vehicleEquipmentsDl">
+                <query>
+                    <![CDATA[select e from dealer_VehicleEquipment e where e.vehicleModel = :vehicleModel]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <facets>
+        <dataLoadCoordinator>
+            <refresh loader="manufacturersLc" onScreenEvent="Init"/>
+
+             <refresh loader="vehicleModelsDl" param="manufacturer"
+                      onContainerItemChanged="manufacturersDc"/>
+
+            <refresh loader="vehicleEquipmentsDl" param="vehicleModel"
+                 onContainerItemChanged="vehicleModelsDc"/>
+        </dataLoadCoordinator>
+    </facets>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="vehicleDc">
+            <column width="250px">
+                <lookupPickerField id="manufacturerField" optionsContainer="manufacturersDc" property="manufacturer"/>
+                <lookupPickerField id="modelField" property="model" optionsContainer="vehicleModelsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="equipmentField" property="equipment" optionsContainer="vehicleEquipmentsDc">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                <dateField id="yearOfIssue" property="yearofissue" dateFormat="yyyy" resolution="YEAR"/>
+                <textField id="priceField" property="price"/>
+
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

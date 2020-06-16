@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" class="com.company.dealer.web.screens.ExtUserEditor"
+        messagesPack="com.company.dealer.web.screens" xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="com/haulmont/cuba/gui/app/security/user/edit/user-edit.xml">
+    <dsContext>
+        <datasource id="userDs" class="com.company.dealer.entity.ExtUser">
+            <collectionDatasource id="country" property="country"/>
+        </datasource>
+    </dsContext>
+    <layout>
+        <groupBox id="propertiesBox">
+            <grid id="propertiesGrid">
+                <rows>
+                    <row id="propertiesRow">
+                        <fieldGroup id="fieldGroupRight">
+                            <column>
+                                <field property="country"/>
+                            </column>
+                        </fieldGroup>
+                    </row>
+                </rows>
+            </grid>
+        </groupBox>
+    </layout>
+</window>

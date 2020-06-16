@@ -1,0 +1,13 @@
+insert into DEALER_COUNTRY
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CODE, IS_DEFAULT)
+values ('c44049ef-7245-e885-7be7-52cc35bd5fda', 1, '2018-01-24 12:13:15', 'admin', '2018-01-24 14:11:17', null, null, null, 'Russia', 'RUS', true )
+
+insert into DEALER_COLOR
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CODE)
+values ('c44049ef-7245-e885-7be7-52cc35bd5fda', 1, '2018-01-24 12:13:15', 'admin', '2018-01-24 14:11:17', null, null, null, 'true black', 'C75 M68 Y67 K90')
+insert into DEALER_COLOR
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CODE)
+values ('c44049ef-7245-e885-7be7-52cc35bd5fdb', 1, '2018-01-24 12:13:15', 'admin', '2018-01-24 14:11:17', null, null, null, 'red', 'C0 M100 Y100 K0')
+insert into DEALER_COLOR
+(ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NAME, CODE)
+values ('c44049ef-7245-e885-7be7-52cc35bd5fdc', 1, '2018-01-24 12:13:15', 'admin', '2018-01-24 14:11:17', null, null, null, 'white', 'C0 M0 Y0 K0')

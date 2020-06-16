@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-dealer" insertBefore="administration">
+        <item screen="dealer_Country.browse"/>
+        <item screen="dealer_Manufacturer.browse"/>
+        <item screen="dealer_Color.browse"/>
+        <item screen="dealer_VehicleModel.browse"/>
+        <item screen="dealer_Vehicle.browse"/>
+        <item screen="dealer_VehicleEquipment.browse"/>
+        <item screen="dealer_Client.browse"/>
+        <item screen="dealer_Person.browse"/>
+        <item screen="dealer_Legal.browse"/>
+        <item screen="dealer_PurchaseRequest.browse"/>
+    </menu>
+</menu-config>

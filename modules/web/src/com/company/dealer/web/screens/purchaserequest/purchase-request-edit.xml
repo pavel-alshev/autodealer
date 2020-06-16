@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.dealer.web.screens.purchaserequest">
+    <data>
+        <instance id="purchaseRequestDc"
+                  class="com.company.dealer.entity.PurchaseRequest"
+                  view="purchaseRequest-view">
+            <loader/>
+        </instance>
+        <collection id="vehiclesDc" class="com.company.dealer.entity.Vehicle" view="_minimal">
+            <loader id="vehiclesLc">
+                <query>
+                    <![CDATA[select e from dealer_Vehicle e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="clientsDc" class="com.company.dealer.entity.Client" view="_minimal">
+            <loader id="clientsLc">
+                <query>
+                    <![CDATA[select e from dealer_Client e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="purchaseRequestDc">
+            <column width="250px">
+                <lookupPickerField id="vehicleField" optionsContainer="vehiclesDc" property="vehicle"/>
+                <lookupPickerField id="clientField" optionsContainer="clientsDc" property="client"/>
+                <checkBox id="isPaidField" property="isPaid"/>
+                <textField id="priceField" property="price"/>
+                <pickerField id="managerField" property="manager">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" class="com.company.dealer.web.screens.ExtUserBrowser"
+        messagesPack="com.company.dealer.web.screens" xmlns:ext="http://schemas.haulmont.com/cuba/window-ext.xsd"
+        extends="com/haulmont/cuba/gui/app/security/user/browse/user-browse.xml">
+    <dsContext>
+        <groupDatasource id="usersDs" class="com.company.dealer.entity.ExtUser">
+            <query>
+                <![CDATA[select e from dealer_ExtUser e ]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <layout>
+        <groupTable id="usersTable">
+            <columns>
+                <column caption="Country" id="country" ext:index="3"/>
+            </columns>
+        </groupTable>
+    </layout>
+</window>

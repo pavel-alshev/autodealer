@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="dealer_ExtUser" name="user.browse" extends="user.browse">
+        <property name="country" view="_local"/>
+    </view>
+    <view entity="dealer_ExtUser" name="user.edit" extends="user.edit">
+        <property name="country" view="_local"/>
+    </view>
+    <view entity="dealer_Manufacturer" name="manufacturer-edit-view" extends="_local">
+        <property name="country" view="_local"/>
+    </view>
+    <view entity="dealer_VehicleModel" name="vehicleModel-view-with-equipment" extends="_local">
+        <property name="manufacturer" view="_minimal"/>
+        <property name="equipment" view="_minimal">
+            <property name="type"/>
+            <property name="note"/>
+            <property name="price"/>
+        </property>
+    </view>
+    <view entity="dealer_Vehicle" name="vehicle-view" extends="_local">
+        <property name="manufacturer" view="_minimal"/>
+        <property name="model" view="_minimal"/>
+        <property name="equipment" view="_minimal"/>
+    </view>
+    <view entity="dealer_VehicleEquipment" name="vehicleEquipment-view" extends="_local"/>
+    <view entity="dealer_Manufacturer" name="manufacturer-view" extends="_local">
+        <property name="country" view="_minimal"/>
+        <property name="model" view="_minimal">
+            <property name="equipment" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="dealer_Client" name="client-view" extends="_local"/>
+    <view entity="dealer_Person" name="person-view" extends="_local"/>
+    <view entity="dealer_Legal" name="legal-view" extends="_local"/>
+    <view entity="dealer_PurchaseRequest" name="purchaseRequest-view" extends="_local">
+        <property name="vehicle" view="_minimal">
+                <property name="price"/>
+        </property>
+        <property name="client" view="_minimal">
+            <property name="clientId"/>
+        </property>
+        <property name="manager" view="_minimal"/>
+    </view>
+</views>

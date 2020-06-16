@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.dealer.web.screens.legal">
+    <data>
+        <instance id="legalDc"
+                  class="com.company.dealer.entity.Legal"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="legalDc">
+            <column width="250px">
+                <textField id="clientIdField" property="clientId"/>
+                <textField id="adressField" property="adress"/>
+                <textField id="requestsNumField" property="requestsNum"/>
+                <textField id="phoneField" property="phone"/>
+                <textField id="innField" property="inn"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

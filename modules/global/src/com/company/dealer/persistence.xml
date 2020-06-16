@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="autodealer" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.dealer.entity.ExtUser</class>
+        <class>com.company.dealer.entity.Country</class>
+        <class>com.company.dealer.entity.Manufacturer</class>
+        <class>com.company.dealer.entity.Color</class>
+        <class>com.company.dealer.entity.VehicleEquipment</class>
+        <class>com.company.dealer.entity.VehicleModel</class>
+        <class>com.company.dealer.entity.Vehicle</class>
+        <class>com.company.dealer.entity.Client</class>
+        <class>com.company.dealer.entity.PurchaseRequest</class>
+        <class>com.company.dealer.entity.Person</class>
+        <class>com.company.dealer.entity.Legal</class>
+    </persistence-unit>
+</persistence>

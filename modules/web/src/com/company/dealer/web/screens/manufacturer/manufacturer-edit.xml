@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.dealer.web.screens.manufacturer">
+    <data>
+        <instance id="manufacturerDc"
+                  class="com.company.dealer.entity.Manufacturer"
+                  view="manufacturer-edit-view">
+            <loader/>
+        </instance>
+        <collection id="countriesDc" class="com.company.dealer.entity.Country" view="_minimal">
+            <loader id="countriesLc">
+                <query>
+                    <![CDATA[select e from dealer_Country e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="manufacturerDc">
+            <column width="250px">
+                <textField id="nameField" property="name"/>
+                <lookupPickerField id="countryField" optionsContainer="countriesDc" property="country"/>
+                <textField id="codeField" property="code"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
